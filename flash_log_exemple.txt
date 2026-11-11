@@ -1,0 +1,79 @@
+Log real de l'execució de flash-all.sh (baixada a Android 9)
+==============================================================
+Nota: el número de sèrie s'ha substituït per <SERIAL> per privacitat.
+
+$ ./flash-all.sh
+Warning: skip copying bootloader_a image avb footer (bootloader_a partition size: 0, bootloader_a image size: 8550056).
+Sending 'bootloader_a' (8349 KB)                   OKAY [  0.340s]
+Writing 'bootloader_a'                             (bootloader) Flashing Pack version b4s4-0.1-5653622
+(bootloader) Flashing partition table for Lun = 0
+(bootloader) Flashing partition xbl_a
+(bootloader) Flashing partition xbl_config_a
+(bootloader) Flashing partition tz_a
+(bootloader) Flashing partition aop_a
+(bootloader) Flashing partition hyp_a
+(bootloader) Flashing partition keymaster_a
+(bootloader) Flashing partition cmnlib_a
+(bootloader) Flashing partition cmnlib64_a
+(bootloader) Flashing partition abl_a
+(bootloader) Flashing partition devcfg_a
+(bootloader) Flashing partition qupfw_a
+(bootloader) Flashing partition storsec_a
+OKAY [  0.304s]
+Finished. Total time: 1.034s
+Rebooting into bootloader                          OKAY [  0.053s]
+Finished. Total time: 0.103s
+< waiting for any device >
+Warning: skip copying radio_a image avb footer (radio_a partition size: 0, radio_a image size: 74739852).
+Sending 'radio_a' (72988 KB)                       OKAY [  2.129s]
+Writing 'radio_a'                                  (bootloader) Flashing Pack version SSD:g670-00011-190411-B-5457439
+(bootloader) Flashing partition modem_a
+OKAY [  0.576s]
+Finished. Total time: 3.079s
+Rebooting into bootloader                          OKAY [  0.045s]
+Finished. Total time: 0.096s
+--------------------------------------------
+Bootloader Version...: b4s4-0.1-5653622
+Baseband Version.....: g670-00011-190411-B-5457439
+Serial Number........: <SERIAL>
+--------------------------------------------
+[...extracció de particions boot, dtbo, vbmeta, system, system_other, vendor...]
+Sending sparse 'system_a' 1/9 (262140 KB)          OKAY [  7.930s]
+Writing 'system_a'                                 OKAY [  0.372s]
+[...9 fragments de system_a, 2 de system_b, 3 de vendor_a...]
+Erasing 'userdata'                                 OKAY [  4.541s]
+Erasing 'metadata'                                 OKAY [  0.166s]
+Rebooting                                          OKAY [  0.060s]
+Finished. Total time: 150.882s
+
+==============================================================
+
+Log real de l'execució de flash_all.sh de Droidian
+==============================================================
+
+$ ./flash_all.sh 2>&1 | tee flash_log.txt
+I: Dependencies found
+I: Waiting for a suitable device
+I: Flashing data/boot.img
+Sending 'boot_a' (34088 KB)                        OKAY [  1.007s]
+Writing 'boot_a'                                   OKAY [  0.579s]
+Finished. Total time: 2.283s
+I: Flashing data/dtbo.img
+Sending 'dtbo_a' (1155 KB)                         OKAY [  0.096s]
+Writing 'dtbo_a'                                   OKAY [  0.073s]
+Finished. Total time: 0.577s
+I: Flashing data/vbmeta.img
+Sending 'vbmeta_a' (4 KB)                          OKAY [  0.117s]
+Writing 'vbmeta_a'                                 OKAY [  0.066s]
+Finished. Total time: 0.533s
+I: Flashing data/userdata.img
+Warning: skip copying userdata image avb footer (userdata partition size: 53648801280, userdata image size: 140727956510560).
+Sending sparse 'userdata' 1/15 (260350 KB)         OKAY [  7.575s]
+Writing 'userdata'                                 OKAY [  0.432s]
+[...15 fragments enviats correctament...]
+Sending sparse 'userdata' 15/15 (133713 KB)        OKAY [  9.784s]
+Writing 'userdata'                                 OKAY [  0.396s]
+Finished. Total time: 142.066s
+Rebooting                                          OKAY [  0.047s]
+Finished. Total time: 3.061s
+I: Flashing completed
